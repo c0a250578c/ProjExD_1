@@ -36,18 +36,23 @@ def main():
         screen.blit(bg_img, [3200 - x, 0])
 
         key_lst = pg.key.get_pressed()
-        kk_rect.move_ip(-1, 0)
+
+        dx = -1
+        dy = 0
+
         if key_lst[pg.K_UP]:
-            kk_rect.move_ip(0, -1)
+            dy -= 1
 
         if key_lst[pg.K_DOWN]:
-            kk_rect.move_ip(0, 1)
+            dy += 1
 
         if key_lst[pg.K_LEFT]:
-            kk_rect.move_ip(-1, 0)
+            dx -= 1
 
         if key_lst[pg.K_RIGHT]:
-            kk_rect.move_ip(2, 0)
+            dx += 2
+
+        kk_rect.move_ip(dx, dy)
 
         screen.blit(kk_img, kk_rect)
 
