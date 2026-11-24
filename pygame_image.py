@@ -19,6 +19,9 @@ def main():
     kk_img = pg.image.load("fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
 
+    kk_rect = kk_img.get_rect()
+    kk_rect.center = (300, 200)
+
     tmr = 0
 
     while True:
@@ -31,7 +34,22 @@ def main():
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_flipped, [1600 - x, 0])
         screen.blit(bg_img, [3200 - x, 0])
-        screen.blit(kk_img, [300, 200])
+
+        key_lst = pg.key.get_pressed()
+
+        if key_lst[pg.K_UP]:
+            kk_rect.move_ip(0, -1)
+
+        if key_lst[pg.K_DOWN]:
+            kk_rect.move_ip(0, 1)
+
+        if key_lst[pg.K_LEFT]:
+            kk_rect.move_ip(-1, 0)
+
+        if key_lst[pg.K_RIGHT]:
+            kk_rect.move_ip(1, 0)
+
+        screen.blit(kk_img, kk_rect)
 
         pg.display.update()
 
