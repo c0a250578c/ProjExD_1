@@ -36,7 +36,7 @@ def main():
         screen.blit(bg_img, [3200 - x, 0])
 
         key_lst = pg.key.get_pressed()
-
+        kk_rect.move_ip(-1, 0)
         if key_lst[pg.K_UP]:
             kk_rect.move_ip(0, -1)
 
@@ -47,7 +47,7 @@ def main():
             kk_rect.move_ip(-1, 0)
 
         if key_lst[pg.K_RIGHT]:
-            kk_rect.move_ip(1, 0)
+            kk_rect.move_ip(2, 0)
 
         screen.blit(kk_img, kk_rect)
 
